@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="8dp">
+
+        <ImageView
+            android:id="@+id/iv_spx_mission_patch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_spx_mission_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mission_label"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/label_grey"
+            app:layout_constraintStart_toEndOf="@+id/iv_spx_mission_patch"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteY="8dp" />
+
+        <TextView
+            android:id="@+id/tv_spx_date_time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_time_label"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/label_grey"
+            app:layout_constraintStart_toEndOf="@+id/iv_spx_mission_patch"
+            app:layout_constraintTop_toBottomOf="@+id/tv_spx_mission_label"
+            tools:layout_editor_absoluteY="27dp" />
+
+        <TextView
+            android:id="@+id/tv_spx_rocket_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rocket_label"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/label_grey"
+            app:layout_constraintStart_toEndOf="@+id/iv_spx_mission_patch"
+            app:layout_constraintTop_toBottomOf="@+id/tv_spx_date_time_label"
+            tools:layout_editor_absoluteY="47dp" />
+
+        <TextView
+            android:id="@+id/tv_spx_days_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/days_from_label"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/label_grey"
+            app:layout_constraintStart_toEndOf="@+id/iv_spx_mission_patch"
+            app:layout_constraintTop_toBottomOf="@+id/tv_spx_rocket_label"
+            tools:layout_editor_absoluteY="66dp" />
+
+        <TextView
+            android:id="@+id/tv_spx_mission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/barrier2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Mission name" />
+
+        <TextView
+            android:id="@+id/tv_spx_date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/barrier2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_spx_mission"
+            tools:text="Date at time" />
+
+        <TextView
+            android:id="@+id/tv_spx_rocket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/barrier2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_spx_date_time"
+            tools:text="Name / type"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_spx_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/barrier2"
+            app:layout_constraintTop_toBottomOf="@id/tv_spx_rocket"
+            tools:text="today - launch date" />
+
+        <ImageView
+            android:id="@+id/iv_spx_check_clear_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginEnd="8dp"
+            tools:src="@drawable/ic_check"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_spx_rocket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="tv_spx_mission_label,tv_spx_days_label,tv_spx_rocket_label,tv_spx_date_time_label"
+            tools:layout_editor_absoluteX="407dp"
+            tools:layout_editor_absoluteY="8dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

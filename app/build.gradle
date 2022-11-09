@@ -30,6 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -49,4 +52,7 @@ dependencies {
     implementation 'com.squareup.picasso3:picasso:3.0.0-alpha02'
     //OkHttp Logging Intercepter
     implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    //Fragment KTX
+    implementation 'androidx.fragment:fragment-ktx:1.5.4'
+
 }

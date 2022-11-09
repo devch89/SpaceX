@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SpaceXAPITest</string>
+    <string name="mission_label">Mission:</string>
+    <string name="date_time_label">Date/time:</string>
+    <string name="rocket_label">Rocket:</string>
+    <string name="days_since_label">Days since now:</string>
+    <string name="days_from_label">Days from now:</string>
+    <string name="header">SpaceX</string>
+    <string name="company_info">%1$s founded by %2$s in %3$d. It has now %4$d employees, %5$d launch sites, and is valued at USD %6$d</string>
+    <string name="company">COMPANY</string>
+    <string name="launches">LAUNCHES</string>
+    <string name="toolbar_title">SpaceX</string>
 </resources>

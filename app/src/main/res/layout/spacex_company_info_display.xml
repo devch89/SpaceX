@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_spx_company_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/company"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/tv_spx_company_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:padding="4dp"
+        tools:text=
+            "{companyName} founded by {founderName} in {year}. It has now {employees} employees, {launch_sites} launch sites, and is valued at USD {valuation}"
+        android:text="@string/company_info"
+        app:layout_constraintTop_toBottomOf="@+id/tv_spx_company_title"
+        />
+    <TextView
+        android:id="@+id/tv_spx_launch_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/launches"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tv_spx_company_info"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
