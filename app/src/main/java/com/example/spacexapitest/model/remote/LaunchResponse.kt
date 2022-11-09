@@ -10,11 +10,11 @@ data class LaunchResponse(
 data class LaunchItem(
     val links: LaunchLinks,
 //    changes the name for the Json response, mainly for readability
-    @Json(name = "rocket")
+    @field:Json(name = "rocket")
     val rocketId: String,
     val success: Boolean,
     val name: String,
-    val dat_utc: String
+    val date_utc: String
 )
 data class LaunchLinks(
     val patch: LaunchLinksPatch,
@@ -35,7 +35,7 @@ data class CompanyResponse(
     val founded: Int,
     val employees: Int,
     val launchSite: Int,
-    val evaluation: Long
+    val valuation: Long
 )
 
 //region Rocket Info

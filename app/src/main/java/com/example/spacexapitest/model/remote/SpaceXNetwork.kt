@@ -21,7 +21,7 @@ object SpaceXNetwork {
 
     private fun createClient(): OkHttpClient {
         val logging = HttpLoggingInterceptor()
-        logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
         val oKHttpClient = OkHttpClient.Builder()
             .addInterceptor(logging)
             .build()

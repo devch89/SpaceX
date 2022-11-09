@@ -1,15 +1,15 @@
 package com.example.spacexapitest.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.spacexapitest.model.remote.CompanyResponse
-import com.example.spacexapitest.model.remote.LaunchItem
 import com.example.spacexapitest.model.remote.LaunchRocket
 import com.example.spacexapitest.model.remote.SpaceXNetwork
 import kotlinx.coroutines.*
-import okhttp3.Dispatcher
 
+private const val TAG = "SpaceXViewModel"
 class SpaceXViewModel : ViewModel() {
 
     private val _launches = MutableLiveData<List<LaunchRocket>>()
@@ -39,7 +39,7 @@ class SpaceXViewModel : ViewModel() {
 
     }
 
-    private val coroutineScope = CoroutineScope(Job() + Dispatchers.IO + exHandler)
+    private val coroutineScope = CoroutineScope(Job() + Dispatchers.Main + exHandler)
 
     /**
      * Dispatchers controlles the access to a ThreadPool.
@@ -58,13 +58,17 @@ class SpaceXViewModel : ViewModel() {
 //        it would be better to create 2 coroutines scopes. we also may be able to create a separate suspend fun and call it inside the coroutine scope
 //        suspends funs can only be called inside other suspend funs or inside coroutineScopes
 //        launch is the promise of doing the job
-        val job = coroutineScope.launch {
+            coroutineScope.launch {
+            Log.d(TAG, "init: company")
             val companyResponse = SpaceXNetwork.spaceXApi.getCompanyInfo()
 
             if (companyResponse.isSuccessful) {
+                Log.d(TAG, "init: isSuccessful")
                 companyResponse.body()?.let {
+                    Log.d(TAG, "init: letSuccessful $it")
 //                    we are inside the main thread so we just need to setValue and not postValue
                     _company.value = it
+
                 }
             }
 //           async {  } we are able to call it in one coroutine scope
@@ -72,10 +76,14 @@ class SpaceXViewModel : ViewModel() {
 
 //        We will launch another coroutine where we done expect a return but inside we will
         coroutineScope.launch {
+            Log.d(TAG, "launches: ")
             //        async is the promise of giving a return of something
             val launches = coroutineScope.async {
+                Log.d(TAG, "launch scope init: ")
                 val allLaunches = SpaceXNetwork.spaceXApi.getAllLaunches()
+                Log.d(TAG, "launches async: $allLaunches")
                 allLaunches.docs.map { launchItem ->
+                    Log.d(TAG, "launches map : $launchItem")
 //             we have to make another network call because we need to get inside of getRocketInfo
                     val rocketInfo = SpaceXNetwork.spaceXApi.getRocketInfo(
                         launchItem.rocketId
@@ -88,7 +96,6 @@ class SpaceXViewModel : ViewModel() {
             }
         }
     }
-
     override fun onCleared() {
         super.onCleared()
         coroutineScope.cancel("The viewModel is cleared.")
