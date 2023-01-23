@@ -8,10 +8,12 @@ import retrofit2.http.Path
 interface SpaceXApi {
     @POST(ROUTES_LAUNCHES)
     suspend fun getAllLaunches(): LaunchResponse
-    @GET(ROUTES_COMPANAY)
+
+    @GET(ROUTES_COMPANY)
     suspend fun getCompanyInfo(): Response<CompanyResponse>
+
     @GET(ROUTES_ROCKET)
     suspend fun getRocketInfo(
         @Path(ROCKET_ID) rocketId: String
     ): RocketResponse
-    }
+}

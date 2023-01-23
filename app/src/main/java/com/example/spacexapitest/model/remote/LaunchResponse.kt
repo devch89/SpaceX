@@ -2,33 +2,31 @@ package com.example.spacexapitest.model.remote
 
 import com.squareup.moshi.Json
 
-//region Launch Info
-//endregion
+
 data class LaunchResponse(
     val docs: List<LaunchItem>
 )
+
 data class LaunchItem(
     val links: LaunchLinks,
-//    changes the name for the Json response, mainly for readability
-    @field:Json(name = "rocket")
-    val rocketId: String,
+    @field:Json(name = "rocket") val rocketId: String,
     val success: Boolean,
     val name: String,
     val date_utc: String
 )
+
 data class LaunchLinks(
     val patch: LaunchLinksPatch,
     val webcast: String,
     val article: String
 
 )
+
 data class LaunchLinksPatch(
     val small: String,
     val large: String
 )
 
-//region Company Info
-//endregion
 data class CompanyResponse(
     val name: String,
     val founder: String,
@@ -38,8 +36,6 @@ data class CompanyResponse(
     val valuation: Long
 )
 
-//region Rocket Info
-//endregion
 data class RocketResponse(
     val name: String,
     val type: String

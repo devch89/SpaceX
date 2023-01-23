@@ -10,4 +10,6 @@
     <string name="company">COMPANY</string>
     <string name="launches">LAUNCHES</string>
     <string name="toolbar_title">SpaceX</string>
+    <string name="sort_list_asc">ASC</string>
+    <string name="sort_list_desc">DESC</string>
 </resources>
